@@ -30,10 +30,6 @@ const Home: React.FC = () => {
                 </Box>
 
                 <Divider sx={{ marginY: 3 }} />
-
-                <Typography variant="body2" color="textSecondary">
-                    Built with Next.js, TypeScript, and Material UI for a smooth and responsive experience.
-                </Typography>
             </Paper>
         </Container>
     );
