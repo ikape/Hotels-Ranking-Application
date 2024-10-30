@@ -99,7 +99,14 @@ const Home: React.FC = () => {
                         <p className="text-sm text-gray-600"><span className="font-semibold">Country:</span> {hotel.country}</p>
                         <p className="text-sm text-gray-600"><span className="font-semibold">Category:</span> {hotel.category}</p>
                         <div className="mt-2 space-x-2">
-                            <button onClick={() => setNewHotel(hotel) || setEditMode(true) || setIsModalOpen(true)} className="text-secondary hover:underline">
+                            <button
+                                onClick={() => {
+                                    setNewHotel(hotel);
+                                    setEditMode(true);
+                                    setIsModalOpen(true);
+                                }}
+                                className="text-secondary hover:underline"
+                            >
                                 Edit
                             </button>
                             <button onClick={() => handleDelete(hotel.id)} className="text-accent hover:underline">

@@ -8,6 +8,7 @@ const Categories: React.FC = () => {
     const dispatch = useDispatch();
     const categories = useSelector((state: RootState) => state.categories.categories);
 
+    // Define default categories that should not be editable or deletable
     const defaultCategories = [
         { id: '1', name: '1 Star' },
         { id: '2', name: '2 Star' },
@@ -93,7 +94,7 @@ const Categories: React.FC = () => {
                             <div className="space-x-2">
                                 <button
                                     onClick={() => {
-                                        setNewCategory(category);
+                                        setNewCategory({ ...category, isCustom: true }); // Set isCustom to true for custom categories
                                         setEditMode(true);
                                     }}
                                     className="text-secondary hover:underline"
