@@ -71,16 +71,42 @@ const Hotels: React.FC = () => {
                 <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 400 }}>
                     <TextField label="Hotel Name" name="name" value={newHotel.name} onChange={handleInputChange} required />
                     <TextField label="Address" name="address" value={newHotel.address} onChange={handleInputChange} required />
-                    <Select label="Country" name="country" value={newHotel.country} onChange={(e) => setNewHotel(prev => ({ ...prev, country: e.target.value as string }))} required>
+
+                    <Select
+                        label="Country"
+                        name="country"
+                        value={newHotel.country}
+                        onChange={(e) => setNewHotel(prev => ({ ...prev, country: e.target.value as string }))}
+                        displayEmpty
+                        required
+                    >
+                        <MenuItem value="" disabled>
+                            Select a country
+                        </MenuItem>
                         {countries.map((country, index) => (
                             <MenuItem key={index} value={country}>{country}</MenuItem>
                         ))}
                     </Select>
-                    <Select label="Category" name="category" value={newHotel.category} onChange={(e) => setNewHotel(prev => ({ ...prev, category: e.target.value as string }))} required>
+
+                    <Select
+                        label="Category"
+                        name="category"
+                        value={newHotel.category}
+                        onChange={(e) => setNewHotel(prev => ({ ...prev, category: e.target.value as string }))}
+                        displayEmpty
+                        required
+                    >
+                        <MenuItem value="" disabled>
+                            Select a category
+                        </MenuItem>
                         {categories.map((cat) => (
                             <MenuItem key={cat.id} value={cat.name}>{cat.name}</MenuItem>
                         ))}
                     </Select>
+
+
+
+
                     <Button onClick={handleSubmit} variant="contained" color="primary" sx={{ alignSelf: 'flex-start' }}>
                         {editMode ? 'Update Hotel' : 'Add Hotel'}
                     </Button>
