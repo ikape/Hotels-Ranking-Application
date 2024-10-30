@@ -3,6 +3,7 @@
 export interface Category {
     id: string;
     name: string;
+    isCustom: true
 }
 
 export interface Hotel {
