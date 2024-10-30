@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { addCategory, editCategory, deleteCategory } from '../store/categorySlice';
 import { Category } from '../types';
+import { useRouter } from 'next/router'; // Import useRouter for navigation
 
 const Categories: React.FC = () => {
     const dispatch = useDispatch();
+    const router = useRouter(); // Initialize router
     const categories = useSelector((state: RootState) => state.categories.categories);
 
     // Define default categories that should not be editable or deletable
@@ -51,6 +53,15 @@ const Categories: React.FC = () => {
 
     return (
         <div className="max-w-md mx-auto bg-white p-6 shadow-md rounded-lg">
+            {/* Back Button */}
+            <button
+                onClick={() => router.back()}
+                className="text-primary text-lg flex items-center gap-2 mb-4"
+            >
+                <span className="material-icons"></span>
+                Back
+            </button>
+
             <h2 className="text-2xl font-semibold mb-4 text-primary">{editMode ? 'Edit Category' : 'Add New Category'}</h2>
 
             {toastMessage && <div className="mb-4 p-2 text-white bg-green-500 rounded">{toastMessage}</div>}
