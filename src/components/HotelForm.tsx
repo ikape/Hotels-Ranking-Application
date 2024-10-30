@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addHotel } from '../store/hotelSlice';
 import { RootState } from '../store';
-import { Button, TextField, Select, MenuItem, FormControl, InputLabel, Box, SelectChangeEvent } from '@mui/material';
 
 const HotelForm: React.FC = () => {
     const dispatch = useDispatch();
@@ -20,14 +19,6 @@ const HotelForm: React.FC = () => {
             .then((data) => setCountries(Array.from(new Set(data.map((item: any) => item.country)))));
     }, []);
 
-    const handleCountryChange = (e: SelectChangeEvent<string>) => {
-        setCountry(e.target.value as string);
-    };
-
-    const handleCategoryChange = (e: SelectChangeEvent<string>) => {
-        setCategory(e.target.value as string);
-    };
-
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!name || !country || !address || !category) return;
@@ -39,27 +30,49 @@ const HotelForm: React.FC = () => {
     };
 
     return (
-        <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <TextField label="Hotel Name" value={name} onChange={(e) => setName(e.target.value)} required />
-            <FormControl>
-                <InputLabel>Country</InputLabel>
-                <Select value={country} onChange={handleCountryChange} required>
-                    {countries.map((country, index) => (
-                        <MenuItem key={index} value={country}>{country}</MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-            <TextField label="Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
-            <FormControl>
-                <InputLabel>Category</InputLabel>
-                <Select value={category} onChange={handleCategoryChange} required>
-                    {categories.map((cat) => (
-                        <MenuItem key={cat.id} value={cat.name}>{cat.name}</MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-            <Button type="submit" variant="contained">Add Hotel</Button>
-        </Box>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto bg-white p-6 shadow-md rounded-lg">
+            <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Hotel Name"
+                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+            />
+            <select
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+            >
+                <option value="" disabled>Select a country</option>
+                {countries.map((country, index) => (
+                    <option key={index} value={country}>{country}</option>
+                ))}
+            </select>
+            <input
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Address"
+                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+            />
+            <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+            >
+                <option value="" disabled>Select a category</option>
+                {categories.map((cat) => (
+                    <option key={cat.id} value={cat.name}>{cat.name}</option>
+                ))}
+            </select>
+            <button type="submit" className="bg-primary text-white py-2 rounded-md hover:bg-secondary">
+                Add Hotel
+            </button>
+        </form>
     );
 };
 
