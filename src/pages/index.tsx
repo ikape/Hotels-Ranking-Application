@@ -127,7 +127,7 @@ const Home: React.FC = () => {
                         onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
                         className="bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary"
                     >
-                        Sort by Name ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
+                        Sort({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
                     </button>
 
                     {/* Search by Name */}
