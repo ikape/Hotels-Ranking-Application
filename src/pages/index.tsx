@@ -109,7 +109,7 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* Filter, Sort, and Search Controls */}
-                <div className="flex flex-row gap-4 items-center justify-center mb-4">
+                <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-4">
                     {/* Category Filter */}
                     <select
                         value={selectedCategory}
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
                         onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
                         className="bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary"
                     >
-                        Sort({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
+                        Sort ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
                     </button>
 
                     {/* Search by Name */}
@@ -139,6 +139,7 @@ const Home: React.FC = () => {
                         className="border border-gray-300 rounded-md p-2"
                     />
                 </div>
+
             </div>
 
             <ul className="grid grid-cols-3 gap-4">
