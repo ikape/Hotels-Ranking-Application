@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Category {
+export interface Category {
     id: string;
     name: string;
-    isCustom: boolean;  // Add `isCustom` property to distinguish between default and custom categories
+    isCustom: boolean; 
 }
 
 interface CategoryState {
