@@ -79,7 +79,7 @@ const Categories: React.FC = () => {
                 <button
                     type="button"
                     onClick={handleSubmit}
-                    className="bg-primary text-white py-2 rounded-md hover:bg-secondary"
+                    className="bg-[#143642] text-white py-2 rounded-md hover:bg-secondary"
                     disabled={loading}
                 >
                     {editMode ? 'Update Category' : 'Add Category'}

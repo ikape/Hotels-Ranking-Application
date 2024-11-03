@@ -94,7 +94,7 @@ const Home: React.FC = () => {
     return (
         <div className="max-w-[1440px] mx-auto p-6 rounded-lg mt-4">
             <div className='text-center'>
-                <h3 className="text-3xl font-semibold mb-4 text-primary">Hotel Ranking Application</h3>
+                <h3 className="text-3xl font-semibold mb-4 text-[#143642]">Hotel Ranking Application</h3>
 
                 {toastMessage && <div className="mb-4 p-2 text-white bg-green-500 rounded">{toastMessage}</div>}
                 {loading && <div className="mb-4 text-primary">Loading...</div>}
