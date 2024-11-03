@@ -108,13 +108,13 @@ const Categories: React.FC = () => {
                                         setNewCategory({ ...category, isCustom: true }); // Set isCustom to true for custom categories
                                         setEditMode(true);
                                     }}
-                                    className="text-secondary hover:underline"
+                                    className="text-green-500 hover:underline"
                                 >
                                     Edit
                                 </button>
                                 <button
                                     onClick={() => handleDelete(category.id)}
-                                    className="text-accent hover:underline"
+                                    className="text-red-500 hover:underline"
                                 >
                                     Delete
                                 </button>

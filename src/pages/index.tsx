@@ -92,7 +92,7 @@ const Home: React.FC = () => {
     if (!hasMounted) return null;
 
     return (
-        <div className="max-w-[1440px] bg-gray-400 mx-auto p-6 shadow-md rounded-lg mt-4">
+        <div className="max-w-[1440px] mx-auto p-6 rounded-lg mt-4">
             <div className='text-center'>
                 <h3 className="text-3xl font-semibold mb-4 text-primary">Hotel Ranking Application</h3>
 
@@ -100,10 +100,10 @@ const Home: React.FC = () => {
                 {loading && <div className="mb-4 text-primary">Loading...</div>}
 
                 <div className="flex flex-row gap-4 mb-4 pb-4 items-center justify-center">
-                    <button onClick={openModal} className="bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary">
+                    <button onClick={openModal} className="bg-[#143642] text-white py-2 px-4 rounded-md hover:bg-secondary">
                         Add New Hotel
                     </button>
-                    <Link href="/categories" className="bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary">
+                    <Link href="/categories" className="bg-[#143642] text-white py-2 px-4 rounded-md hover:bg-secondary">
                         Manage Categories
                     </Link>
                 </div>
@@ -125,7 +125,7 @@ const Home: React.FC = () => {
                     {/* Sorting Toggle */}
                     <button
                         onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                        className="bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary"
+                        className="bg-[#143642] text-white py-2 px-4 rounded-md hover:bg-secondary"
                     >
                         Sort ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
                     </button>
@@ -225,7 +225,7 @@ const Home: React.FC = () => {
                                     className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary"
                                     required
                                 >
-                                    <option value="" disabled>Select a category</option>
+                                    <option className='bg-[#143642]' value="" disabled>Select a category</option>
                                     {defaultCategories.map((cat) => (
                                         <option key={cat.id} value={cat.name}>{cat.name}</option>
                                     ))}
@@ -236,7 +236,7 @@ const Home: React.FC = () => {
                                         ))}
                                 </select>
                             </div>
-                            <button type="button" onClick={handleSubmit} className="bg-primary text-white py-2 rounded-md hover:bg-secondary" disabled={loading}>
+                            <button type="button" onClick={handleSubmit} className="bg-[#143642] text-white py-2 rounded-md hover:bg-secondary" disabled={loading}>
                                 {editMode ? 'Update Hotel' : 'Add Hotel'}
                             </button>
                         </form>
